@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.4)
+wcmake_minimum_required(VERSION 3.4)
 
 cmake_policy(SET CMP0065 NEW)
 
@@ -651,7 +651,7 @@ if(_x86_64 OR _aarch64)
   add_definitions(-DCONFIG_64BIT)
 endif()
 
-if(NOT _x86 AND NOT _x86_64)
+#if(NOT _x86 AND NOT _x86_64)
   install(TARGETS ${BOX64}
     RUNTIME DESTINATION bin)
   configure_file(system/box64.conf.cmake system/box64.conf)
@@ -661,7 +661,7 @@ if(NOT _x86 AND NOT _x86_64)
   install(FILES ${CMAKE_SOURCE_DIR}/x64lib/libgcc_s.so.1 DESTINATION lib/x86_64-linux-gnu/)
   install(FILES ${CMAKE_SOURCE_DIR}/x64lib/libpng12.so.0 DESTINATION lib/x86_64-linux-gnu/)
   install(FILES ${CMAKE_SOURCE_DIR}/system/box64.box64rc DESTINATION etc/)
-endif()
+#endif()
 
 if(NOT TARGET uninstall)
     configure_file(
